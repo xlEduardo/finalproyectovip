@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="index :: head">
+    <meta charset="UTF-8">
+    <title>Agregar Producto</title>
+</head>
+<body id="page-top">
+
+<div id="wrapper" >
+
+    <!-- Sidebar -->
+    <ul th:replace="index :: ul"></ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+
+
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-100 mx-auto">Editar Producto</h1>
+                </div>
+
+                <div class="row align-content-center mx-auto">
+                    <div class="card card-outline-secondary mx-auto ">
+                        <div class="card-header">
+                            <h3 class="mb-0">Información Producto</h3>
+                        </div>
+                        <div class="card-body">
+
+                            <form class="form" role="form" autocomplete="off" th:action="@{/actualizar/{id}(id=${producto.id})}" th:object="${producto}" method="post" >
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Marca</label>
+                                    <div class="col-lg-9">
+                                        <select id="marca" name="marcas" th:field="*{marca}">
+                                            <option value="Sabritas">Sabritas</option>
+                                            <option value="Pringles">Pringles</option>
+                                            <option value="Marinela">Marinela</option>
+                                            <option value="Gamesa">Gamesa</option>
+                                            <option value="Coca Cola">Coca Cola</option>
+                                            <option value="Coca Cola">Fanta</option>
+                                        </select>
+                                        <span th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Nombre producto</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" th:field="*{nombre}" placeholder="Nombre del producto">
+                                        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Categoria</label>
+                                    <div class="col-lg-9">
+                                        <select id="tipo" name="tipos" th:field="*{category}">
+                                            <option value="Papitas">Papitas</option>
+                                            <option value="Sodas">Sodas</option>
+                                            <option value="Galletas">Galletas</option>
+                                        </select>
+                                        <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Cantidad</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" th:field="*{cantidad}" placeholder="A ingresar al almacen">
+                                        <span th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Precio</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" th:field="*{precio}" placeholder="Pesos">
+                                        <span th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Cont</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" th:field="*{cont}" placeholder="Gramos">
+                                        <span th:if="${#fields.hasErrors('cont')}" th:errors="*{cont}" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Fecha</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" th:field="*{fecha}" placeholder="Fecha Caducidad">
+                                        <span th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                        <a class="btn btn-secondary" th:href="@{/}">Cancelar</a>
+                                        <button type="submit" class="btn btn-primary"> Aceptar </button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer th:replace="index :: footer">
+
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="index :: head">
+    <meta charset="UTF-8">
+    <title>Agregar Producto</title>
+</head>
+<body id="page-top">
+
+<div id="wrapper" >
+
+    <!-- Sidebar -->
+    <ul th:replace="index :: ul"></ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <div  class="bg-green">
+                <div th:replace="index :: nav">
+
+                </div>
+            </div>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-100 mx-auto">Agregar Producto</h1>
+                </div>
+
+                <div class="row align-content-center mx-auto">
+                    <div class="card card-outline-secondary mx-auto ">
+                        <div class="card-header">
+                            <h3 class="mb-0">Información Producto</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form"  action="#" th:action="@{/addproducto}" th:object="${producto}" method="post" >
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Marca</label>
+                                    <div class="col-lg-9">
+                                        <select id="marca" name="marcas" th:field="*{marca}">
+                                            <option value="Sabritas">Sabritas</option>
+                                            <option value="Pringles">Pringles</option>
+                                            <option value="Marinela">Marinela</option>
+                                            <option value="Gamesa">Gamesa</option>
+                                            <option value="Coca Cola">Coca Cola</option>
+                                            <option value="Coca Cola">Fanta</option>
+                                            <option value="Salvo">Salvo</option>
+                                            <option value="Downy">Downy</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Nombre producto</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" th:field="*{nombre}" placeholder="Nombre del producto">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Tipo</label>
+                                    <div class="col-lg-9">
+                                        <select id="tipo" name="tipos" th:field="*{category}">
+                                            <option value="Papitas">Papitas</option>
+                                            <option value="Sodas">Sodas</option>
+                                            <option value="Galletas">Galletas</option>
+                                            <option value="Limpieza">Limpieza</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Cantidad</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" th:field="*{cantidad}" placeholder="A ingresar al almacen">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Precio</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" th:field="*{precio}" placeholder="Pesos">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Cont</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" th:field="*{cont}" placeholder="Gramos/Litros">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Fecha</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" th:field="*{fecha}" placeholder="Fecha Caducidad">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9 mx-auto">
+                                        <button type="submit" class="btn btn-primary"> Agregar </button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+
+            </div>
+
+
+
+        </div>
+        <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+<!-- Footer -->
+<footer th:replace="index :: footer">
+
+</footer>
+<!-- End of Footer -->
+
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="index :: head">
+    <meta charset="UTF-8">
+    <title>Tabla Productos</title>
+</head>
+<body id="page-top">
+
+<div id="wrapper" >
+
+    <!-- Sidebar -->
+    <ul th:replace="index :: ul"></ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <div  class="bg-green">
+                <div th:replace="index :: nav">
+
+                </div>
+            </div>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-100 mx-auto">Inventario de Productos</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="divtable mx-auto">
+                    <div th:switch="${producto}" class="container my-5">
+                    <table class="table bg-white">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Marca del pruducto</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Cont</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Eliminar</th>
+                            <th scope="col">Editar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="producto: ${producto}">
+                            <td th:text="${producto.getId()}"> </td>
+                            <td th:text="${producto.getMarca()}"> </td>
+                            <td th:text="${producto.getNombre()}"> </td>
+                            <td th:text="${producto.getCategory()}"> </td>
+                            <td th:text="${producto.getCont()}"> </td>
+                            <td th:text="${producto.getCantidad()}"> </td>
+                            <td th:text="${producto.getPrecio()}"> </td>
+                            <td th:text="${producto.getFecha()}"> </td>
+                            <td><a th:href="@{/eliminar/{id}(id=${producto.id})}" class="btn btn-primary"> <i class="fas fa-user-times ml-2"> </i></a></td>
+                            <td><a th:href="@{/editar/{id}(id=${producto.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <br><br><br>
+
+        </div>
+
+
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer th:replace="index :: footer">
+
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+
+</body>
+</html>
